@@ -49,6 +49,13 @@ jobs:
           
       - name: Build with maven
         run: mvn -B package --file pom.xml
+        
+      - name: cache for maven
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
                
   build-on-Macos:
 
@@ -65,5 +72,12 @@ jobs:
           
       - name: Build with maven
         run: mvn -B package --file pom.xml
+        
+      - name: cache for maven
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
 
        
