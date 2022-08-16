@@ -25,14 +25,6 @@ jobs:
       - name: Build with maven
         run: mvn -B package --file pom.xml
         
-      - name: List the current directory
-        run: ls -a
-        
-      - name: Target Folder
-        run: |
-          cd target
-          ls -a
-          
           
   build-on-windows:
 
@@ -49,16 +41,7 @@ jobs:
           
       - name: Build with maven
         run: mvn -B package --file pom.xml
-        
-      - name: List the current directory
-        run: ls -a
-        
-      - name: Target Folder
-        run: |
-          cd target
-          ls -a
-          
-          
+               
   build-on-Macos:
 
     runs-on: macos-latest
@@ -74,12 +57,5 @@ jobs:
           
       - name: Build with maven
         run: mvn -B package --file pom.xml
-        
-      - name: List the current directory
-        run: ls -a
-        
-      - name: Target Folder
-        run: |
-          cd target
-          ls -a
+
        
