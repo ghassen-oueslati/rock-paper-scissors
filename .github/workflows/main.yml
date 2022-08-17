@@ -24,7 +24,7 @@ jobs:
           
       - name: Build with maven
         run: |
-          echo mvn -B package --file pom.xml
+          mvn -B package --file pom.xml
           mkdir staging && cd target && ls -a
         
       - name: cache for maven
