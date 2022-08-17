@@ -23,7 +23,9 @@ jobs:
           java-version: 1.8
           
       - name: Build with maven
-        run: mvn -B package --file pom.xml
+        run: |
+          echo mvn -B package --file pom.xml
+          mkdir staging && cp target/*.jar staging 
         
       - name: cache for maven
         uses: actions/cache@v2
@@ -31,6 +33,12 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+      
+      - name: Uploading Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Github-Actions-Arifacts
+          path: staging
           
         
           
